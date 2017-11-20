@@ -13,7 +13,7 @@ Install via Composer
 Output via insert tags:
 
 Show opening Times of a specific day
-`{{opened::Mo|DI|Mi|Do|Fr|Sa|So}}`
+`{{opened::Mo|Di|Mi|Do|Fr|Sa|So}}`
 
 Show the next special day
 `{{opened::special}}`
