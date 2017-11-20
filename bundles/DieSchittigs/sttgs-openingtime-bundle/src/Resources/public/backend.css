@@ -1,0 +1,6 @@
+#tl_navigation .group-sttgs {
+    background: url(group-sttgs.svg) 3px 2px no-repeat;
+}
+td.hidelabel h3 {
+    display: none;
+}

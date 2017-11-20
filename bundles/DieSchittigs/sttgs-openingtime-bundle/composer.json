@@ -1,0 +1,33 @@
+{
+    "name": "dieschittigs/sttgs-openingtime-bundle",
+    "description": "",
+    "type": "contao-bundle",
+    "keywords":["contao"],
+    "require": {
+        "php": "^5.6|^7.0",
+        "contao/core-bundle": "^4.4"
+    },
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "Martin Schittig",
+            "email": "martin@dieschittigs.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DieSchittigs\\SttgsOpeningtimeBundle\\" : "src/"
+        },
+        "classmap": [
+            "src/Resources/contao/"
+		],
+		"exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/"
+		]
+    },
+    "extra": {
+		"contao-manager-plugin": "DieSchittigs\\SttgsOpeningtimeBundle\\ContaoManager\\Plugin"
+	}
+}
