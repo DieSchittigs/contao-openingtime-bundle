@@ -1,0 +1,1 @@
+# contao-openingtime-bundle
