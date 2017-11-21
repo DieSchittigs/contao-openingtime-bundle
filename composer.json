@@ -2,7 +2,7 @@
     "name": "dieschittigs/contao-openingtime-bundle",
     "description": "Edit and show opening times in contao",
     "type": "contao-bundle",
-    "keywords":["contao","api","bundle","json"],
+    "keywords":["contao","openingtime","bundle"],
     "require": {
         "php": "^5.6|^7.0",
         "contao/core-bundle": "^4.4"
