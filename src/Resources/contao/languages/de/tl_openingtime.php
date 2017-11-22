@@ -17,10 +17,11 @@ $GLOBALS['TL_LANG']['tl_openingtime']['Sa'][1] = 'Geben Sie die Öffnungszeiten 
 $GLOBALS['TL_LANG']['tl_openingtime']['So'][0] = 'Öffnungszeiten Sonntag';
 $GLOBALS['TL_LANG']['tl_openingtime']['So'][1] = 'Geben Sie die Öffnungszeiten am Sonntag  mit führenden 0 an (09:00-19:00)';
 
-
-$GLOBALS['TL_LANG']['tl_openingtime']['specialStart'][0] = 'Besondere Öffnungszeiten - Start';
+$GLOBALS['TL_LANG']['tl_openingtime']['specials'][0] = 'Geänderte Öffnungszeiten';
+$GLOBALS['TL_LANG']['tl_openingtime']['specials'][1] = 'Geänderte Öffnungszeiten überschreiben normalen Öffnungszeiten und Feiertage';
+$GLOBALS['TL_LANG']['tl_openingtime']['specialStart'][0] = 'Start';
 $GLOBALS['TL_LANG']['tl_openingtime']['specialStart'][1] = 'Geben Sie einen Termin für geänderte Öffnungszeiten an (z.B. Verkaufsoffener Sonntag)';
-$GLOBALS['TL_LANG']['tl_openingtime']['specialEnd'][0] = 'Besondere Öffnungszeiten - Ende';
+$GLOBALS['TL_LANG']['tl_openingtime']['specialEnd'][0] = 'Ende';
 $GLOBALS['TL_LANG']['tl_openingtime']['specialEnd'][1] = 'Geben Sie einen Termin für geänderte Öffnungszeiten an (z.B. Verkaufsoffener Sonntag)';
 $GLOBALS['TL_LANG']['tl_openingtime']['specialText'][0] = 'Hinweistext für die besonderen Öffnungszeiten';
 $GLOBALS['TL_LANG']['tl_openingtime']['specialText'][1] = 'Geben Sie einen Hinweis zu den besonderen Öffnungszeiten an';

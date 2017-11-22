@@ -13,7 +13,7 @@ $GLOBALS['TL_DCA']['tl_openingtime'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{opening_legend},Mo,Di,Mi,Do,Fr,Sa,So;{special_legend},specialStart,specialEnd,specialText;{holiday_legend},holidays;'
+		'default'                     => '{opening_legend},Mo,Di,Mi,Do,Fr,Sa,So;{special_legend},specials;{holiday_legend},holidays;'
 	),
 	// Fields
 	'fields' => array
@@ -58,20 +58,33 @@ $GLOBALS['TL_DCA']['tl_openingtime'] = array
             'inputType'               => 'listWizard',
             'eval'                    => array( 'tl_class'=>'w50 clr')
         ),
-        'specialStart'=> array (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_openingtime']['specialStart'] ,
-            'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50')
-        ),
-        'specialEnd'=> array (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_openingtime']['specialEnd'] ,
-            'inputType'               => 'text',
-            'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50')
-        ),
-        'specialText'=> array (
-            'label'                   => &$GLOBALS['TL_LANG']['tl_openingtime']['specialText'] ,
-            'inputType'               => 'text',
-            'eval'                    => array('tl_class'=>'w50')
-        ),
+        'specials' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_openingtime']['specials'],
+            'inputType'               => 'multiColumnWizard',
+            'eval'                    => array(
+                'dragAndDrop' => true,
+                'columnFields' => array
+                (
+                    'specialStart' => array
+                    (
+                        'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialStart'],
+                        'inputType'     => 'text',
+                        'eval'          => array('rgxp'=>'datim', 'datepicker'=>true, 'style' => 'width:160px'),
+                    ),
+                    'specialEnd' => array
+                    (
+                        'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialEnd'],
+                        'inputType'     => 'text',
+                        'eval'          => array('rgxp'=>'datim', 'datepicker'=>true, 'style' => 'width:160px')
+                    ),
+                    'specialText' => array
+                    (
+                        'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialText'],
+                        'inputType'     => 'text',
+                        'eval'          => array('style' => 'width:300px')
+                    )
+                )
+            )
+        )
     )
 );

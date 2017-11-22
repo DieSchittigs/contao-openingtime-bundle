@@ -55,12 +55,20 @@ class openingtimeClass extends \Contao\Frontend {
                     }
 
                     // Sondertag
-                    if(\Date::parse($strDateFormat,$GLOBALS['TL_CONFIG']['specialStart']) >= \Date::parse($strDateFormat,$ts)) { // Vergangene Tage brauchen wir nicht, aber
-                        $arrOpen[\Date::parse($strDateFormat,$GLOBALS['TL_CONFIG']['specialStart'])] = array(
-                            'start'=>$GLOBALS['TL_CONFIG']['specialStart'],
-                            'end'=>$GLOBALS['TL_CONFIG']['specialEnd'],
-                            'text'=>$GLOBALS['TL_CONFIG']['specialText']
-                        );
+                    $arrSpecials = unserialize($GLOBALS['TL_CONFIG']['specials']);
+                    foreach($arrSpecials as $special){
+                        if(
+                            isset($special['specialStart']) &&
+                            isset($special['specialEnd']) &&
+                            $special['specialStart'] < $special['specialEnd'] &&
+                            \Date::parse($strDateFormat,$special['specialStart']) >= \Date::parse($strDateFormat,$ts)
+                        ) { // Vergangene Tage brauchen wir nicht, aber
+                            $arrOpen[\Date::parse($strDateFormat,$special['specialStart'])] = array(
+                                'start'=>$special['specialStart'],
+                                'end'=>$special['specialEnd'],
+                                'text'=>$special['specialText']
+                            );
+                        }
                     }
 
                     ksort($arrOpen);
