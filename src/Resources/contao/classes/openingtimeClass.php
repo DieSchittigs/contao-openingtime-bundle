@@ -77,7 +77,7 @@ class openingtimeClass extends \Contao\Frontend {
                     foreach($arrOpen as $day => $time) {
 
                         if(is_array($time) && $ts <= $time['end']) {
-                            $a = ($time['text']) ? '<span class="special">' . $time['text'] . '</span>' : '';
+                            $a = ($time['text']) ? sprintf($GLOBALS['TL_LANG']['MSC']['shorttag'], $time['text']) : '';
                             if($time['start'] > $ts) {
                                 if($i<2) return $a . sprintf($GLOBALS['TL_LANG']['MSC']['opened'][$i]['start'], \Date::parse(\Config::get('timeFormat'), $time['start']));
                                 else return $a . sprintf($GLOBALS['TL_LANG']['MSC']['opened'][2]['start'], \Date::parse('l', $time['start']), \Date::parse('H:i', $time['start']));
@@ -92,15 +92,29 @@ class openingtimeClass extends \Contao\Frontend {
                 }
 
                 elseif($arrTag[1] == 'special') {
-                    if($ts < $GLOBALS['TL_CONFIG']['specialEnd']) {
+
+                    // Sondertag
+                    $arrSpecials = unserialize($GLOBALS['TL_CONFIG']['specials']);
+                    foreach($arrSpecials as $special){
+                        if(
+                            isset($special['specialStart']) &&
+                            isset($special['specialEnd']) &&
+                            $special['specialStart'] < $special['specialEnd'] &&
+                            \Date::parse($strDateFormat,$special['specialStart']) >= \Date::parse($strDateFormat,$ts)
+                        ) { // Vergangene Tage brauchen wir nicht, aber
+                            break;
+                        }
+                    }
+
+                    if($ts < $special['specialEnd']) {
                         return sprintf($GLOBALS['TL_LANG']['MSC']['openSpecial'],
-                            $GLOBALS['TL_CONFIG']['specialText'],
-                            \Date::parse(\Config::get('dateFormat'), $GLOBALS['TL_CONFIG']['specialStart']),
-                            \Date::parse(\Config::get('timeFormat'), $GLOBALS['TL_CONFIG']['specialStart']),
-                            \Date::parse(\Config::get('timeFormat'), $GLOBALS['TL_CONFIG']['specialEnd'])
+                            $special['specialText'],
+                            \Date::parse(\Config::get('dateFormat'), $special['specialStart']),
+                            \Date::parse(\Config::get('timeFormat'), $special['specialStart']),
+                            \Date::parse(\Config::get('timeFormat'), $special['specialEnd'])
                         );
                     }
-                    else return sprintf($GLOBALS['TL_LANG']['MSC']['openNoSpecial'], $GLOBALS['TL_CONFIG']['specialText']);
+                    else return $GLOBALS['TL_LANG']['MSC']['openNoSpecial'];
                 }
 
                 else {
