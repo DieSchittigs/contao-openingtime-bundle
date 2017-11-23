@@ -1,14 +1,12 @@
 <?php
 
-$GLOBALS['TL_LANG']['MSC']['opened'][0]['start'] = 'Heute geöffnet ab %s Uhr';
-$GLOBALS['TL_LANG']['MSC']['opened'][0]['end'] = 'Heute geöffnet bis %s Uhr';
-$GLOBALS['TL_LANG']['MSC']['opened'][1]['start'] = 'Morgen geöffnet ab %s Uhr';
-$GLOBALS['TL_LANG']['MSC']['opened'][1]['end'] = 'Morgen geöffnet bis %s Uhr';
-$GLOBALS['TL_LANG']['MSC']['opened'][2]['start'] = '%s geöffnet ab %s Uhr';
-$GLOBALS['TL_LANG']['MSC']['opened'][2]['end'] = '%s geöffnet bis %s Uhr';
+$GLOBALS['TL_LANG']['MSC']['opened'][0]['start'] = '<span class="opentime today from">Heute geöffnet ab %s Uhr</span>';
+$GLOBALS['TL_LANG']['MSC']['opened'][0]['end'] = '<span class="opentime today to">Heute geöffnet bis %s Uhr</span>';
+$GLOBALS['TL_LANG']['MSC']['opened'][1]['start'] = '<span class="opentime tomorrow from">Morgen geöffnet ab %s Uhr</span>';
+$GLOBALS['TL_LANG']['MSC']['opened'][2]['start'] = '<span class="opentime future from">%s geöffnet ab %s Uhr</span>';
 
-$GLOBALS['TL_LANG']['MSC']['shorttag'] = '<div class="special-item"></div><div class="special-text">%s</div>';
-$GLOBALS['TL_LANG']['MSC']['openTime'] = '%s bis %s Uhr';
+$GLOBALS['TL_LANG']['MSC']['shorttag'] = '<span class="special-icon"></span><span class="special-text">%s</span>';
+$GLOBALS['TL_LANG']['MSC']['openTime'] = '<span class="opentime">%s bis %s Uhr</span>';
 $GLOBALS['TL_LANG']['MSC']['openClosed'] = 'geschlossen';
 $GLOBALS['TL_LANG']['MSC']['openSpecial'] = 'Nächster %s: %s von %s bis %s Uhr.';
 $GLOBALS['TL_LANG']['MSC']['openNoSpecial'] = 'Es sind aktuell keine geänderten Öffnungszeiten bekannt.';
