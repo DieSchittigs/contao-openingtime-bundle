@@ -111,7 +111,8 @@ class openingtimeClass extends \Contao\Frontend {
                             $special['specialText'],
                             \Date::parse(\Config::get('dateFormat'), $special['specialStart']),
                             \Date::parse(\Config::get('timeFormat'), $special['specialStart']),
-                            \Date::parse(\Config::get('timeFormat'), $special['specialEnd'])
+                            \Date::parse(\Config::get('timeFormat'), $special['specialEnd']),
+                            $special['specialDesc']
                         );
                     }
                     else return $GLOBALS['TL_LANG']['MSC']['openNoSpecial'];

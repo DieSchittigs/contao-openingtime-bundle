@@ -81,6 +81,12 @@ $GLOBALS['TL_DCA']['tl_openingtime'] = array
                     (
                         'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialText'],
                         'inputType'     => 'text',
+                        'eval'          => array('style' => 'width:200px')
+                    ),
+                    'specialDesc' => array
+                    (
+                        'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialDesc'],
+                        'inputType'     => 'text',
                         'eval'          => array('style' => 'width:300px')
                     )
                 )
