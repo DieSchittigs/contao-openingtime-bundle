@@ -69,25 +69,25 @@ $GLOBALS['TL_DCA']['tl_openingtime'] = array
                     (
                         'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialStart'],
                         'inputType'     => 'text',
-                        'eval'          => array('rgxp'=>'datim', 'datepicker'=>true, 'style' => 'width:160px'),
+                        'eval'          => array('rgxp'=>'datim', 'datepicker'=>true, 'style' => 'width:140px'),
                     ),
                     'specialEnd' => array
                     (
                         'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialEnd'],
                         'inputType'     => 'text',
-                        'eval'          => array('rgxp'=>'datim', 'datepicker'=>true, 'style' => 'width:160px')
+                        'eval'          => array('rgxp'=>'datim', 'datepicker'=>true, 'style' => 'width:140px')
                     ),
                     'specialText' => array
                     (
                         'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialText'],
                         'inputType'     => 'text',
-                        'eval'          => array('style' => 'width:200px')
+                        'eval'          => array('style' => 'width:180px')
                     ),
                     'specialDesc' => array
                     (
                         'label'         => &$GLOBALS['TL_LANG']['tl_openingtime']['specialDesc'],
                         'inputType'     => 'text',
-                        'eval'          => array('style' => 'width:300px')
+                        'eval'          => array('style' => 'width:200px')
                     )
                 )
             )

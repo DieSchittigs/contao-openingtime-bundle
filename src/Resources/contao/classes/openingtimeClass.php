@@ -66,7 +66,8 @@ class openingtimeClass extends \Contao\Frontend {
                             $arrOpen[\Date::parse($strDateFormat,$special['specialStart'])] = array(
                                 'start'=>$special['specialStart'],
                                 'end'=>$special['specialEnd'],
-                                'text'=>$special['specialText']
+                                'text'=>$special['specialText'],
+                                'desc'=>$special['specialDesc']
                             );
                         }
                     }
