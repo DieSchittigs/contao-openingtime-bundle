@@ -50,7 +50,11 @@ class openingtimeClass extends \Contao\Frontend {
 
                             $arrDate = explode('.', $date);
                             if (count($arrDate) != 3) continue;
-                            $arrOpen[$arrDate[2].$arrDate[1].$arrDate[0]] = false;
+                            $strHoliday = $arrDate[2].$arrDate[1].$arrDate[0];
+
+                            if ($strHoliday < \Date::parse($strDateFormat,$ts)) continue;
+
+                            $arrOpen[$strHoliday] = false;
                         }
                     }
 
@@ -75,15 +79,18 @@ class openingtimeClass extends \Contao\Frontend {
                     ksort($arrOpen);
 
                     $i = 0;
+
                     foreach($arrOpen as $day => $time) {
 
                         if(is_array($time) && $ts <= $time['end']) {
                             $a = ($time['text']) ? sprintf($GLOBALS['TL_LANG']['MSC']['shorttag'], $time['text']) : '';
+                            
                             if($time['start'] > $ts) {
                                 if($i<2) return $a . sprintf($GLOBALS['TL_LANG']['MSC']['opened'][$i]['start'], \Date::parse(\Config::get('timeFormat'), $time['start']));
                                 else return $a . sprintf($GLOBALS['TL_LANG']['MSC']['opened'][2]['start'], \Date::parse('l', $time['start']), \Date::parse('H:i', $time['start']));
                             }
                             else {
+                                
                                 if($i<2) return $a . sprintf($GLOBALS['TL_LANG']['MSC']['opened'][$i]['end'], \Date::parse(\Config::get('timeFormat'), $time['end']));
                                 else return $a . sprintf($GLOBALS['TL_LANG']['MSC']['opened'][2]['end'], \Date::parse('l', $time['end']), \Date::parse('H:i', $time['end']));
                             }
