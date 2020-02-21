@@ -137,5 +137,6 @@ class openingtimeClass extends \Contao\Frontend {
             break;
 
         }
+        return false;
     }
 }
